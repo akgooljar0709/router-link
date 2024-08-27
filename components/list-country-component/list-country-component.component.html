@@ -1,0 +1,21 @@
+<!-- src/app/components/country-list/country-list.component.html -->
+
+<div *ngIf="isLoading">Loading countries...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<table *ngIf="!isLoading && !error" class="country-table">
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Country Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of countries">
+      <td><img [src]="country.flag" alt="{{ country.name }} flag" width="50"></td>
+      <td>
+       <a [routerLink]="['/country',country.name]" routerLinkActive="active" ariaCurrentWhenActive="page">{{ country.name }}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

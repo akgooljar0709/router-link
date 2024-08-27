@@ -1,0 +1,13 @@
+<!-- src/app/components/country-detail/country-detail.component.html -->
+
+<div *ngIf="isLoading">Loading country details...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<div *ngIf="!isLoading && !error && country">
+  <h2>{{ country.name.common }}</h2>
+  <img [src]="country.flags.png" alt="{{ country.name.common }} flag" width="100">
+  <p><strong>Region:</strong> {{ country.region }}</p>
+  <p><strong>Subregion:</strong> {{ country.subregion }}</p>
+  <p><strong>Capital:</strong> {{ country.capital?.[0] }}</p>
+  <!-- Add more details as needed -->
+</div>
